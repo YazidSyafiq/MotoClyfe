@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataMotoClyfe">
+  <DataContextMoniker Name="/DataMotoClyfeDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6853e757-63ec-45e7-a884-1d2429e5ed06" absoluteBounds="0.5, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataMotoClyfeDataContext/data_user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1442620b-579e-465e-a48c-60f6d4756ab9" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e443a898-d81d-42cb-b957-ff02c02ae5db" absoluteBounds="0.5, 2.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataMotoClyfeDataContext/data_motor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53416324-651e-428d-bfec-d6e6993fc5cd" absoluteBounds="0.51500000000000012, 3.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="beac9d51-445c-4b55-8fac-06d295f957ff" absoluteBounds="5.125, 2, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataMotoClyfeDataContext/data_pengembalian" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33785a1f-e9bb-4bc0-968a-a57c4a327b96" absoluteBounds="5.14, 2.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66b5da5a-b293-4d00-9fe2-73f8f7fc3000" absoluteBounds="2.75, 1.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataMotoClyfeDataContext/data_sewa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e027c18-6f2f-4ffc-97e3-672fc6f4f1ca" absoluteBounds="2.765, 2.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 2.88544840494792); (5.125 : 2.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataMotoClyfeDataContext/data_sewa/data_sewa_data_pengembalian" />
+      <nodes>
+        <classShapeMoniker Id="66b5da5a-b293-4d00-9fe2-73f8f7fc3000" />
+        <classShapeMoniker Id="beac9d51-445c-4b55-8fac-06d295f957ff" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.29409912109375); (2.75 : 3.29409912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataMotoClyfeDataContext/data_motor/data_motor_data_sewa" />
+      <nodes>
+        <classShapeMoniker Id="e443a898-d81d-42cb-b957-ff02c02ae5db" />
+        <classShapeMoniker Id="66b5da5a-b293-4d00-9fe2-73f8f7fc3000" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 2.16429768880208); (2.75 : 2.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataMotoClyfeDataContext/data_user/data_user_data_sewa" />
+      <nodes>
+        <classShapeMoniker Id="6853e757-63ec-45e7-a884-1d2429e5ed06" />
+        <classShapeMoniker Id="66b5da5a-b293-4d00-9fe2-73f8f7fc3000" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

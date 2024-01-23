@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="tugas_gede" Class="DataMotoClyfeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-V30UPHN;Initial Catalog=tugas_gede;Integrated Security=True" SettingsObjectName="Tugas_Besar.Properties.Settings" SettingsPropertyName="tugas_gedeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.data_user" Member="data_users">
+    <Type Name="data_user">
+      <Column Name="id_user" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="role" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="data_user_data_sewa" Member="data_sewas" ThisKey="id_user" OtherKey="id_user" Type="data_sewa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.data_motor" Member="data_motors">
+    <Type Name="data_motor">
+      <Column Name="id_motor" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nama_motor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="jenis_motor" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="pabrikan_motor" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ukuran_mesin" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tahun_pembuatan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="plat_nomor" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="status_motor" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="data_motor_data_sewa" Member="data_sewas" ThisKey="id_motor" OtherKey="id_motor" Type="data_sewa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.data_pengembalian" Member="data_pengembalians">
+    <Type Name="data_pengembalian">
+      <Column Name="id_pengembalian" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_sewa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date_pengembalian" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="time_pengembalian" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="status_pengembalian" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Association Name="data_sewa_data_pengembalian" Member="data_sewa" ThisKey="id_sewa" OtherKey="id_sewa" Type="data_sewa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.data_sewa" Member="data_sewas">
+    <Type Name="data_sewa">
+      <Column Name="id_sewa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_user" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_motor" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tanggal_sewa" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="waktu_sewa" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="status_sewa" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="data_sewa_data_pengembalian" Member="data_pengembalians" ThisKey="id_sewa" OtherKey="id_sewa" Type="data_pengembalian" />
+      <Association Name="data_motor_data_sewa" Member="data_motor" ThisKey="id_motor" OtherKey="id_motor" Type="data_motor" IsForeignKey="true" />
+      <Association Name="data_user_data_sewa" Member="data_user" ThisKey="id_user" OtherKey="id_user" Type="data_user" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
